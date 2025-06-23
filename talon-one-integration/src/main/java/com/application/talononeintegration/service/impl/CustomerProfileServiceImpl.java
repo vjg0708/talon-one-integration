@@ -3,17 +3,17 @@ package com.application.talononeintegration.service.impl;
 import com.application.talononeintegration.DTO.CustomerProfileRequest;
 import com.application.talononeintegration.DTO.CustomerSessionRequest;
 import com.application.talononeintegration.feignclient.TalonOneClient;
-import com.application.talononeintegration.service.TalonIntegrationService;
+import com.application.talononeintegration.service.CustomerProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TalonIntegrationServiceImpl implements TalonIntegrationService {
+public class CustomerProfileServiceImpl implements CustomerProfileService {
 
     private final TalonOneClient talonOneClient;
 
     @Autowired
-    public TalonIntegrationServiceImpl(TalonOneClient talonOneClient) {
+    public CustomerProfileServiceImpl(TalonOneClient talonOneClient) {
         this.talonOneClient = talonOneClient;
     }
 
@@ -26,13 +26,6 @@ public class TalonIntegrationServiceImpl implements TalonIntegrationService {
         ).getBody();
     }
 
-    @Override
-    public String updateCustomerSession(CustomerSessionRequest customerSession) {
 
-        return talonOneClient.setCustomerSession(
-                customerSession.getSessionId(),
-                customerSession
-        ).getBody();
-    }
 
 }
