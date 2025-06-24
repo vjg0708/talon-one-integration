@@ -1,6 +1,7 @@
 package com.application.talononeintegration.config;
 
 import com.application.talononeintegration.configproperties.TalonOneProperties;
+import feign.Logger;
 import feign.RequestInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,8 +22,15 @@ public class OpenFeignConfig {
     public RequestInterceptor requestInterceptor(){
 
         return requestTemplate ->{
-            requestTemplate.header(
-                    "Authorization", "ApiKey-V1 "+talonOneProperties.getKey());
+            requestTemplate
+                    .header(
+                    "Authorization", "ApiKey-v1 "+talonOneProperties.getKey());
         };
+    }
+
+    @Bean
+    public Logger.Level feignLoggerLevel(){
+
+        return Logger.Level.FULL;
     }
 }

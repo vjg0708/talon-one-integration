@@ -1,6 +1,6 @@
 package com.application.talononeintegration.service.impl;
 
-import com.application.talononeintegration.DTO.CustomerSessionRequest;
+import com.application.talononeintegration.DTO.CustomerSessionDTO;
 import com.application.talononeintegration.feignclient.TalonOneClient;
 import com.application.talononeintegration.service.CustomerSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,17 @@ public class CustomerSessionServiceImpl implements CustomerSessionService {
     }
 
     @Override
-    public String updateCustomerSession(CustomerSessionRequest customerSession) {
+    public Object updateCustomerSession(CustomerSessionDTO customerSession) {
 
         return talonOneClient.setCustomerSession(
                 customerSession.getSessionId(),
                 customerSession
         ).getBody();
+    }
+
+    @Override
+    public Object getCustomerSession(String sessionId) {
+
+        return talonOneClient.getCustomerSession(sessionId).getBody();
     }
 }

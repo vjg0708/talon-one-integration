@@ -3,16 +3,15 @@ package com.application.talononeintegration.DTO;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Map;
 
 @Data
-public class CustomerSessionRequest {
+public class CustomerSessionDTO {
 
     private String sessionId;
     private String profileId;
     private List<String> couponCodes;
-    private List<CartItem> cartItems;
     private State state;
+    private List<CartItemDTO> cartItems;
     private List<ResponseContent> responseContents;
 
     private enum State{

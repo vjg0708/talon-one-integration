@@ -1,13 +1,12 @@
 package com.application.talononeintegration.DTO;
 
-import com.fasterxml.jackson.databind.annotation.EnumNaming;
 import lombok.Data;
 
 import java.util.List;
 import java.util.Map;
 
 @Data
-public class CustomerProfileRequest {
+public class CustomerProfileDTO {
 
     private String integrationId;
 

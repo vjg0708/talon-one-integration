@@ -1,8 +1,9 @@
 package com.application.talononeintegration.controller;
 
-import com.application.talononeintegration.DTO.CustomerProfileRequest;
+import com.application.talononeintegration.DTO.CustomerProfileDTO;
 import com.application.talononeintegration.service.CustomerProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +21,11 @@ public class CustomerProfileController {
         this.profileService = profileService;
     }
 
-    @PostMapping("/profile")
-    public String updateProfile(
-            @RequestBody CustomerProfileRequest customerProfile){
+    @PostMapping("/addProfile")
+    public ResponseEntity<Object> updateProfile(
+            @RequestBody CustomerProfileDTO customerProfile){
 
-        return profileService.updateCustomerProfile(customerProfile);
+        return ResponseEntity.ok(profileService.updateCustomerProfile(customerProfile));
     }
 
 

@@ -1,7 +1,6 @@
 package com.application.talononeintegration.service.impl;
 
-import com.application.talononeintegration.DTO.CustomerProfileRequest;
-import com.application.talononeintegration.DTO.CustomerSessionRequest;
+import com.application.talononeintegration.DTO.CustomerProfileDTO;
 import com.application.talononeintegration.feignclient.TalonOneClient;
 import com.application.talononeintegration.service.CustomerProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class CustomerProfileServiceImpl implements CustomerProfileService {
     }
 
     @Override
-    public String updateCustomerProfile(CustomerProfileRequest customerProfile) {
+    public Object updateCustomerProfile(CustomerProfileDTO customerProfile) {
 
         return talonOneClient.setCustomerProfile(
                 customerProfile.getIntegrationId(),

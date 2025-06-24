@@ -1,12 +1,11 @@
 package com.application.talononeintegration.service;
 
-import com.application.talononeintegration.DTO.CustomerProfileRequest;
-import com.application.talononeintegration.DTO.CustomerSessionRequest;
+import com.application.talononeintegration.DTO.CustomerProfileDTO;
 
 public interface CustomerProfileService {
 
-    public String updateCustomerProfile(
-            CustomerProfileRequest customerProfile
+    public Object updateCustomerProfile(
+            CustomerProfileDTO customerProfile
     );
 
 
